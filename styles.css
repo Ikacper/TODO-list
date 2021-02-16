@@ -1,11 +1,11 @@
 html {
   background-color: rgb(59, 59, 59);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 .form-container {
   margin: 0 auto;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .task-text {
@@ -23,10 +23,6 @@ html {
   font-weight: 600;
 }
 
-.form-input:focus {
-  outline: none;
-}
-
 .task-button {
   display: block;
   margin: 0 auto;
@@ -35,10 +31,6 @@ html {
   border: 2px solid black;
   font-weight: 600;
   width: 80px;
-}
-
-.task-button:focus {
-  outline: none;
 }
 
 .task-button:hover {
@@ -56,6 +48,11 @@ html {
   width: 60%;
   border-radius: 15px;
   list-style: none;
+  color: white;
+}
+
+.task-date {
+  color: white;
 }
 
 .task-item:hover {

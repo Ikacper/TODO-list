@@ -1,29 +1,40 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    const input = document.querySelector('input');
-    const btn = document.querySelector('button');
+    const input = document.querySelector('.form-input');
+    const btn = document.querySelector('.task-button');
     const taskList = document.querySelector('.task-list');
 
-function time() {
+function addZero (hours) {
+    return '0'+hours;
+}
+
+function currentTime() {
     const dateTime = new Date();
     let hours = dateTime.getHours();
-    if(hours < 9)
-        hours = "0"+hours;
-    let minutes = dateTime.getMinutes();
-    if(minutes < 9)
-        minutes = "0"+minutes;
-    let seconds = dateTime.getSeconds();
-    if(seconds < 9)
-        seconds = "0"+seconds;
-    const hour = hours+ ":"+ minutes + ":" + seconds;
 
-    return hour;
+    let oneDigitNumber = 9;
+
+    if(hours < oneDigitNumber)
+        hours = addZero(hours)
+    let minutes = dateTime.getMinutes();
+    if(minutes < oneDigitNumber)
+        minutes = addZero(minutes)
+    let seconds = dateTime.getSeconds();
+    if(seconds < oneDigitNumber)
+        seconds = addZero(seconds)
+    const time = `${hours}:${minutes}:${seconds}`;
+
+    return time;
+}
+
+function displayTime(el) {
+   
 }
 
 
-function addTask (val) {
+function addTask (inputValue) {
     const el = document.createElement('li');
     const text = document.createElement('p');
-    text.innerText = val;
+    text.innerText = inputValue;
     text.classList.add('item-text')
     el.classList.add('task-item');
 
@@ -36,18 +47,18 @@ function addTask (val) {
 
     const h3 = document.createElement('h3');
     
-
     h3.classList.add('task-date');
-    h3.innerText = time();
+    h3.innerText = currentTime();
+    el.appendChild(h3);
 
     taskList.appendChild(el);
-    el.appendChild(h3);
+    
     el.appendChild(text);
     el.appendChild(deleteBtn);
 }
 
-btn.addEventListener('click', () => {
-    
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
     if(input.value != "") {
         addTask(input.value);
         input.value = '';
