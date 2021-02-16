@@ -27,34 +27,39 @@ function currentTime() {
 }
 
 function displayTime(el) {
-   
+    const h3 = document.createElement('h3');
+    
+    h3.classList.add('task-date');
+    h3.innerText = currentTime();
+    el.appendChild(h3);
 }
 
-
-function addTask (inputValue) {
-    const el = document.createElement('li');
+function displayTask(el, inputValue) {
     const text = document.createElement('p');
     text.innerText = inputValue;
     text.classList.add('item-text')
-    el.classList.add('task-item');
+    el.appendChild(text);
+}
 
+function displayDeleteBtn(el) {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('task-button-delete');
     deleteBtn.innerText = 'delete';
     deleteBtn.addEventListener('click', () => {
         el.remove();
     })
+    el.appendChild(deleteBtn);
+}
 
-    const h3 = document.createElement('h3');
-    
-    h3.classList.add('task-date');
-    h3.innerText = currentTime();
-    el.appendChild(h3);
+function addTask (inputValue) {
+    const el = document.createElement('li');
+    el.classList.add('task-item');   
+
+    displayTime(el);
+    displayTask(el, inputValue);
+    displayDeleteBtn(el);
 
     taskList.appendChild(el);
-    
-    el.appendChild(text);
-    el.appendChild(deleteBtn);
 }
 
 btn.addEventListener('click', (e) => {
