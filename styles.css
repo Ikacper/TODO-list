@@ -8,7 +8,7 @@ html {
   margin: 0 auto;
 }
 
-.task-text {
+.form-taskText {
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -16,14 +16,14 @@ html {
   font-size: 1.6rem;
 }
 
-.form-input {
+.form-taskInput {
   display: block;
   margin: 0.4rem auto;
   padding: 0.4rem;
   font-weight: 600;
 }
 
-.task-button {
+.form-taskButton {
   display: block;
   margin: 0 auto;
   padding: 0.4rem;
@@ -33,7 +33,7 @@ html {
   width: 80px;
 }
 
-.task-button:hover {
+.form-taskButton:hover {
   background-color: #ddd;
   cursor: pointer;
 }
